@@ -1,6 +1,7 @@
 name: E5-Rclone-Actions-Repo
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -38,3 +39,13 @@ jobs:
           rclone move lsd.log onedrive:/E5-Rclone-Actions-Repo/
           rclone delete onedrive:/E5-Rclone-Actions-Repo/lsd.log
           rclone rmdir onedrive:/E5-Rclone-Actions-Repo/
+          
+      - name: Commit config #提交配置文件
+        run: |
+         rm ~/.config/rclone/rclone.conf
+         echo `date +"%Y-%m-%d %H:%M:%S"` begin > time.log
+         git config --global user.email "144663295+ihzazuhairnawan@users.noreply.github.com"
+         git config --global user.name "ihzazuhairnawan"
+         git add .
+         git commit -am "Auto update rclone config"
+         git push
