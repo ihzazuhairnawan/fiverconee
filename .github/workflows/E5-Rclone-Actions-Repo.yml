@@ -1,4 +1,4 @@
-name: E5-Rclone-Actions-Repo
+name: terbanting
 
 on:
   workflow_dispatch:
@@ -45,5 +45,5 @@ jobs:
          git config --global user.email "144663295+ihzazuhairnawan@users.noreply.github.com"
          git config --global user.name "ihzazuhairnawan"
          git add .
-         git commit -am "Auto update rclone config"
+         git commit -am "aku cinta kepadamu"
          git push
